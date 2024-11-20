@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 
+echo code refactoring && exit 0
 
 
 ##
