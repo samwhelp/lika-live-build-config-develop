@@ -183,9 +183,15 @@ master_var_init () {
 	DEFAULT_MAIN_RUN="steps"
 	REF_MAIN_RUN="${REF_MAIN_RUN:=$DEFAULT_MAIN_RUN}"
 
+
 	DEFAULT_BUILD_LOCALE="en_us"
 	REF_BUILD_LOCALE="${REF_BUILD_LOCALE:=$DEFAULT_BUILD_LOCALE}"
 	REF_BUILD_LOCALE_OPTION_LIST="en_us zh_tw zh_cn zh_hk ja_jp ko_kr"
+
+
+	DEFAULT_BUILD_RESPIN="xfce"
+	REF_BUILD_RESPIN="${REF_BUILD_RESPIN:=$DEFAULT_BUILD_RESPIN}"
+	REF_BUILD_RESPIN_OPTION_LIST="xfce kde"
 
 
 	##
@@ -379,6 +385,12 @@ master_var_dump () {
 	util_debug_echo "DEFAULT_BUILD_LOCALE=${DEFAULT_BUILD_LOCALE}"
 	util_debug_echo "REF_BUILD_LOCALE=${REF_BUILD_LOCALE}"
 	util_debug_echo "REF_BUILD_LOCALE_OPTION_LIST=${REF_BUILD_LOCALE_OPTION_LIST}"
+
+
+	util_debug_echo
+	util_debug_echo "DEFAULT_BUILD_RESPIN=${DEFAULT_BUILD_RESPIN}"
+	util_debug_echo "REF_BUILD_RESPIN=${REF_BUILD_RESPIN}"
+	util_debug_echo "REF_BUILD_RESPIN_OPTION_LIST=${REF_BUILD_RESPIN_OPTION_LIST}"
 
 
 	##
@@ -1178,6 +1190,19 @@ msg_help_build_locale_not_supported () {
 
 }
 
+msg_help_build_respin_not_supported () {
+
+	util_error_echo
+	util_error_echo "##"
+	util_error_echo "## ## Build Respin Not Supported"
+	util_error_echo "##"
+
+	util_error_echo
+	msg_usage_body_respin
+	util_error_echo
+
+}
+
 msg_usage_body_main () {
 
 
@@ -1210,6 +1235,20 @@ msg_usage_body_locale () {
 	return 0
 }
 
+msg_usage_body_respin () {
+
+
+	util_error_echo "> Build Respin Options: ${REF_BUILD_RESPIN_OPTION_LIST}"
+	util_error_echo
+	util_error_echo "SYNOPSIS : sudo REF_BUILD_RESPIN=xfce ./${REF_CMD_FILE_NAME} [build_arch]"
+	util_error_echo
+	util_error_echo "Example  : sudo REF_BUILD_RESPIN=xfce ./${REF_CMD_FILE_NAME} amd64"
+	util_error_echo
+	util_error_echo "Example  : sudo REF_BUILD_RESPIN=kde ./${REF_CMD_FILE_NAME} amd64"
+
+
+	return 0
+}
 
 ##
 ## ## Msg / Args
@@ -1220,10 +1259,12 @@ msg_master_args () {
 	util_error_echo
 	util_error_echo "Build: REF_BUILD_ARCH=${REF_BUILD_ARCH}"
 	util_error_echo "Build: REF_BUILD_LOCALE=${REF_BUILD_LOCALE}"
+	util_error_echo "Build: REF_BUILD_RESPIN=${REF_BUILD_RESPIN}"
 	util_error_echo
 
 	return 0
 }
+
 
 ##
 ## ## Master / Args
@@ -1274,6 +1315,11 @@ master_arg_build_arch () {
 	return 0
 }
 
+
+##
+## ## Master / Opts
+##
+
 master_arg_build_locale () {
 
 	util_debug_echo
@@ -1317,6 +1363,55 @@ master_arg_build_locale () {
 	return 0
 }
 
+master_arg_build_respin () {
+
+	util_debug_echo
+
+
+	if [[ -z "${REF_BUILD_RESPIN}" ]]; then
+		REF_BUILD_RESPIN="${DEFAULT_BUILD_RESPIN}"
+	fi
+
+
+	local not_allowed="true"
+	local allow_build_respin=""
+
+	for allow_build_respin in ${REF_BUILD_RESPIN_OPTION_LIST}; do
+
+		if [[ "${allow_build_respin}" == "${REF_BUILD_RESPIN}" ]]; then
+
+			util_debug_echo "allow_build_respin=${allow_build_respin}"
+			not_allowed="false"
+			break;
+
+		fi
+
+	done
+
+
+	if [[ "${not_allowed}" == "true" ]]; then
+
+		util_debug_echo "Var: REF_BUILD_RESPIN=${REF_BUILD_RESPIN}"
+
+		msg_help_build_respin_not_supported
+
+		util_error_echo "Var: REF_BUILD_RESPIN=${REF_BUILD_RESPIN}"
+		exit;
+
+	fi
+
+
+	util_debug_echo "Var: REF_BUILD_RESPIN=${REF_BUILD_RESPIN}"
+
+	return 0
+}
+
+
+
+
+
+
+
 
 ##
 ## ## Main / Args
@@ -1351,6 +1446,8 @@ _main_init_args_ () {
 	master_arg_build_arch "${@}"
 
 	master_arg_build_locale "${@}"
+
+	master_arg_build_respin "${@}"
 
 
 	util_debug_echo
