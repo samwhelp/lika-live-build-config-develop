@@ -223,6 +223,96 @@ main_var_dump
 
 
 
+
+
+
+##
+## ## Args / Variable
+##
+
+args_var_init () {
+
+
+	##
+	## ## Main / Args
+	##
+
+	DEFAULT_BUILD_ARCH="amd64"
+	REF_BUILD_ARCH="${REF_BUILD_ARCH:=$DEFAULT_BUILD_ARCH}"
+	REF_BUILD_ARCH_OPTION_LIST="amd64 arm64"
+
+
+	##
+	## ## Main / Opts
+	##
+
+	DEFAULT_MAIN_RUN="steps"
+	REF_MAIN_RUN="${REF_MAIN_RUN:=$DEFAULT_MAIN_RUN}"
+
+
+	DEFAULT_BUILD_LOCALE="en_us"
+	REF_BUILD_LOCALE="${REF_BUILD_LOCALE:=$DEFAULT_BUILD_LOCALE}"
+	REF_BUILD_LOCALE_OPTION_LIST="en_us zh_tw zh_cn zh_hk ja_jp ko_kr"
+
+
+	DEFAULT_BUILD_RESPIN="xfce"
+	REF_BUILD_RESPIN="${REF_BUILD_RESPIN:=$DEFAULT_BUILD_RESPIN}"
+	REF_BUILD_RESPIN_OPTION_LIST="xfce kde"
+
+
+
+	return 0
+}
+
+args_var_dump () {
+
+
+	util_debug_echo
+	util_debug_echo "##"
+	util_debug_echo "## ## Dump / args_var_dump"
+	util_debug_echo "##"
+
+
+	##
+	## ## Main / Args
+	##
+
+	util_debug_echo
+	util_debug_echo "DEFAULT_BUILD_ARCH=${DEFAULT_BUILD_ARCH}"
+	util_debug_echo "REF_BUILD_ARCH=${REF_BUILD_ARCH}"
+	util_debug_echo "REF_BUILD_ARCH_OPTION_LIST=${REF_BUILD_ARCH_OPTION_LIST}"
+
+
+	##
+	## ## Main / Opts
+	##
+
+	util_debug_echo
+	util_debug_echo "DEFAULT_MAIN_RUN=${DEFAULT_MAIN_RUN}"
+	util_debug_echo "REF_MAIN_RUN=${REF_MAIN_RUN}"
+
+
+	util_debug_echo
+	util_debug_echo "DEFAULT_BUILD_LOCALE=${DEFAULT_BUILD_LOCALE}"
+	util_debug_echo "REF_BUILD_LOCALE=${REF_BUILD_LOCALE}"
+	util_debug_echo "REF_BUILD_LOCALE_OPTION_LIST=${REF_BUILD_LOCALE_OPTION_LIST}"
+
+
+	util_debug_echo
+	util_debug_echo "DEFAULT_BUILD_RESPIN=${DEFAULT_BUILD_RESPIN}"
+	util_debug_echo "REF_BUILD_RESPIN=${REF_BUILD_RESPIN}"
+	util_debug_echo "REF_BUILD_RESPIN_OPTION_LIST=${REF_BUILD_RESPIN_OPTION_LIST}"
+
+
+	return 0
+}
+
+args_var_init
+args_var_dump
+
+
+
+
 ##
 ## ## Master / Variable
 ##
@@ -676,6 +766,10 @@ _main_init_args_ () {
 	util_debug_echo "##"
 
 
+	##
+	## ## Args / Init
+	##
+
 	master_arg_build_arch "${@}"
 
 	master_arg_build_locale "${@}"
@@ -685,6 +779,13 @@ _main_init_args_ () {
 
 
 
+
+
+	##
+	## ## Args / Variable / Dump Again
+	##
+
+	args_var_dump
 
 
 	##
