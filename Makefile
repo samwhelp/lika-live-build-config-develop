@@ -72,7 +72,7 @@ clean:
 
 
 cover:
-	@./cover.sh
+	IS_DEBUG=true REF_MAIN_RUN=test ./cover.sh
 .PHONY: cover
 
 

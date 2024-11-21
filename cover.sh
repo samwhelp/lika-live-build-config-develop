@@ -361,14 +361,38 @@ model_var_dump () {
 
 
 
+##
+## ## Model / Run / Default
+##
 
+model_run_default () {
 
+	util_error_echo
+	util_error_echo "##"
+	util_error_echo "## ## Model / Run / Default"
+	util_error_echo "##"
 
-
+	return 0
+}
 
 
 ##
-## ## Model Start / Start
+## ## Model / Run / Test
+##
+
+model_run_test () {
+
+	util_error_echo
+	util_error_echo "##"
+	util_error_echo "## ## Model / Run / Test"
+	util_error_echo "##"
+
+	return 0
+}
+
+
+##
+## ## Model / Start
 ##
 
 model_start () {
@@ -381,9 +405,9 @@ model_start () {
 	local main_run="${REF_MAIN_RUN}"
 
 	if [[ "${main_run}" == "test" ]]; then
-		lika_build_iso_develop_test
+		model_run_test
 	else
-		lika_build_iso_steps
+		model_run_default
 	fi
 
 
