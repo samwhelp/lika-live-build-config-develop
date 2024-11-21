@@ -376,7 +376,66 @@ model_var_dump () {
 	return 0
 }
 
+##
+## ## Model / Run / Cover
+##
 
+util_live_build_config_cover_by_dir () {
+	## usage: core_live_build_config_cover ${source_base_dir_path} ${target_base_dir_path}
+
+	local source_dir_path="${1}"
+	local target_dir_path="${2}"
+
+	util_error_echo
+	util_error_echo "##"
+	util_error_echo "## ## Live Build Config / Overlay"
+	util_error_echo "##"
+	util_error_echo
+
+
+	util_error_echo
+	util_error_echo mkdir -p "${source_dir_path}"
+	mkdir -p "${source_dir_path}"
+
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_dir_path}"
+	mkdir -p "${target_dir_path}"
+
+
+	util_error_echo
+	util_error_echo cp -rf "${source_dir_path}/." "${target_dir_path}"
+	cp -rf "${source_dir_path}/." "${target_dir_path}"
+
+
+	return
+}
+
+core_live_build_config_cover () {
+	## usage: core_live_build_config_cover ${respin} ${source_base_dir_path} ${target_base_dir_path}
+
+	return 0
+}
+
+mod_live_build_config_cover_common () {
+
+	return 0
+}
+
+mod_live_build_config_cover_by_respin () {
+
+	return 0
+}
+
+
+mod_live_build_config_cover () {
+
+	mod_live_build_config_cover_common
+
+	mod_live_build_config_cover_by_respin
+
+	return 0
+}
 
 ##
 ## ## Model / Run / Default
