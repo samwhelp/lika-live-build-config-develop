@@ -109,11 +109,21 @@ base_var_dump
 
 plan_var_init () {
 
+
 	##
 	## ## Plan / Path
 	##
 
 	REF_PLAN_DIR_PATH="${REF_BASE_DIR_PATH}"
+
+
+	##
+	## ## Plan / Base Path
+	##
+
+	REF_PLAN_BASE_SOURCE_DIR_PATH="${REF_PLAN_DIR_PATH}"
+	REF_PLAN_BASE_TARGET_DIR_PATH="/opt/tmp"
+
 
 	return 0
 }
@@ -127,8 +137,21 @@ plan_var_dump () {
 	util_debug_echo "##"
 
 
+	##
+	## ## Plan / Path
+	##
+
 	util_debug_echo
 	util_debug_echo "REF_PLAN_DIR_PATH=${REF_PLAN_DIR_PATH}"
+
+
+	##
+	## ## Plan / Base Path
+	##
+
+	util_debug_echo
+	util_debug_echo "REF_PLAN_BASE_SOURCE_DIR_PATH=${REF_PLAN_BASE_SOURCE_DIR_PATH}"
+	util_debug_echo "REF_PLAN_BASE_TARGET_DIR_PATH=${REF_PLAN_BASE_TARGET_DIR_PATH}"
 
 
 	return 0
@@ -147,6 +170,14 @@ plan_var_dump
 
 main_var_init () {
 
+
+	##
+	## ## Main / Subject
+	##
+
+	REF_MAIN_SUBJECT_NAME="lika"
+
+
 	return 0
 }
 
@@ -157,6 +188,14 @@ main_var_dump () {
 	util_debug_echo "##"
 	util_debug_echo "## ## Dump / main_var_dump"
 	util_debug_echo "##"
+
+
+	##
+	## ## Main / Subject
+	##
+
+	util_debug_echo
+	util_debug_echo "REF_MAIN_SUBJECT_NAME=${REF_MAIN_SUBJECT_NAME}"
 
 
 
