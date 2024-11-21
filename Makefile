@@ -67,3 +67,13 @@ test:
 clean:
 	sudo rm -rf /opt/tmp/lika
 .PHONY: clean
+
+
+
+
+cover:
+	@./cover.sh
+.PHONY: cover
+
+
+
