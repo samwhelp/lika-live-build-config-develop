@@ -51,3 +51,155 @@ is_not_debug () {
 	! is_debug
 
 }
+
+
+
+
+##
+## ## Base / Variable
+##
+
+base_var_init () {
+
+	return 0
+}
+
+base_var_dump () {
+
+
+	util_debug_echo
+	util_debug_echo "##"
+	util_debug_echo "## ## Tips"
+	util_debug_echo "##"
+	util_debug_echo
+	util_debug_echo "> Hide Dump Info"
+	util_debug_echo
+	util_debug_echo "\$ export IS_DEBUG=false"
+	util_debug_echo
+
+
+	util_debug_echo
+	util_debug_echo "##"
+	util_debug_echo "## ## Dump / base_var_dump"
+	util_debug_echo "##"
+
+
+	util_debug_echo
+	util_debug_echo "REF_BASE_DIR_PATH=${REF_BASE_DIR_PATH}"
+	util_debug_echo "REF_CMD_FILE_NAME=${REF_CMD_FILE_NAME}"
+
+	util_debug_echo
+	util_debug_echo "DEFAULT_IS_DEBUG=${DEFAULT_IS_DEBUG}"
+	util_debug_echo "IS_DEBUG=${IS_DEBUG}"
+
+
+	return 0
+}
+
+base_var_init
+
+base_var_dump
+
+
+
+
+##
+## ## Plan / Variable
+##
+
+plan_var_init () {
+
+	##
+	## ## Plan / Path
+	##
+
+	REF_PLAN_DIR_PATH="${REF_BASE_DIR_PATH}"
+
+	return 0
+}
+
+plan_var_dump () {
+
+
+	util_debug_echo
+	util_debug_echo "##"
+	util_debug_echo "## ## Dump / plan_var_dump"
+	util_debug_echo "##"
+
+
+	util_debug_echo
+	util_debug_echo "REF_PLAN_DIR_PATH=${REF_PLAN_DIR_PATH}"
+
+
+	return 0
+}
+
+plan_var_init
+
+plan_var_dump
+
+
+
+
+##
+## ## Main / Variable
+##
+
+main_var_init () {
+
+	return 0
+}
+
+main_var_dump () {
+
+
+	util_debug_echo
+	util_debug_echo "##"
+	util_debug_echo "## ## Dump / main_var_dump"
+	util_debug_echo "##"
+
+
+
+	return 0
+}
+
+main_var_init
+
+main_var_dump
+
+
+
+
+
+
+
+
+
+
+
+
+##
+## ## Master / Variable
+##
+
+master_var_init () {
+
+	return 0
+}
+
+master_var_dump () {
+
+
+	util_debug_echo
+	util_debug_echo "##"
+	util_debug_echo "## ## Dump / master_var_dump"
+	util_debug_echo "##"
+
+
+
+	return 0
+}
+
+master_var_init
+
+master_var_dump
