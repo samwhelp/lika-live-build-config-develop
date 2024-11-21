@@ -178,6 +178,15 @@ main_var_init () {
 	REF_MAIN_SUBJECT_NAME="lika"
 
 
+	##
+	## ## Main / Base Path
+	##
+
+	REF_MAIN_BASE_SOURCE_DIR_PATH="${REF_PLAN_BASE_SOURCE_DIR_PATH}"
+	REF_MAIN_BASE_TARGET_DIR_PATH="${REF_PLAN_BASE_TARGET_DIR_PATH}/${REF_MAIN_SUBJECT_NAME}/work"
+
+
+
 	return 0
 }
 
@@ -197,6 +206,14 @@ main_var_dump () {
 	util_debug_echo
 	util_debug_echo "REF_MAIN_SUBJECT_NAME=${REF_MAIN_SUBJECT_NAME}"
 
+
+	##
+	## ## Main / Base Path
+	##
+
+	util_debug_echo
+	util_debug_echo "REF_MAIN_BASE_SOURCE_DIR_PATH=${REF_MAIN_BASE_SOURCE_DIR_PATH}"
+	util_debug_echo "REF_MAIN_BASE_TARGET_DIR_PATH=${REF_MAIN_BASE_TARGET_DIR_PATH}"
 
 
 	return 0
