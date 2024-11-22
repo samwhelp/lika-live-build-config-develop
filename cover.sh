@@ -649,11 +649,13 @@ msg_usage_body_main () {
 	util_error_echo
 	util_error_echo "SYNOPSIS : sudo ./${REF_CMD_FILE_NAME} [build_respin]"
 	util_error_echo
-	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} xfce"
+	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME}"
 	util_error_echo
 	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} xfce"
 	util_error_echo
 	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} kde"
+	util_error_echo
+	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} gnome"
 
 
 	return 0
@@ -664,11 +666,13 @@ msg_usage_body_locale () {
 
 	util_error_echo "> Build Locale Options: ${REF_BUILD_LOCALE_OPTION_LIST}"
 	util_error_echo
-	util_error_echo "SYNOPSIS : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME} [build_arch]"
+	util_error_echo "SYNOPSIS : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME} [build_respin]"
 	util_error_echo
-	util_error_echo "Example  : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME} amd64"
+	util_error_echo "Example  : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME} xfce"
 	util_error_echo
-	util_error_echo "Example  : sudo REF_BUILD_LOCALE=ez_cn ./${REF_CMD_FILE_NAME} amd64"
+	util_error_echo "Example  : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME}"
+	util_error_echo
+	util_error_echo "Example  : sudo REF_BUILD_LOCALE=ez_cn ./${REF_CMD_FILE_NAME}"
 
 
 	return 0
@@ -679,11 +683,13 @@ msg_usage_body_arch () {
 
 	util_error_echo "> Build Arch Options: ${REF_BUILD_ARCH_OPTION_LIST}"
 	util_error_echo
-	util_error_echo "SYNOPSIS : sudo REF_BUILD_ARCH=amd64 ./${REF_CMD_FILE_NAME} [build_arch]"
+	util_error_echo "SYNOPSIS : sudo REF_BUILD_ARCH=amd64 ./${REF_CMD_FILE_NAME} [build_respin]"
 	util_error_echo
 	util_error_echo "Example  : sudo REF_BUILD_ARCH=amd64 ./${REF_CMD_FILE_NAME} xfce"
 	util_error_echo
-	util_error_echo "Example  : sudo REF_BUILD_ARCH=arm64 ./${REF_CMD_FILE_NAME} kde"
+	util_error_echo "Example  : sudo REF_BUILD_ARCH=amd64 ./${REF_CMD_FILE_NAME}"
+	util_error_echo
+	util_error_echo "Example  : sudo REF_BUILD_ARCH=arm64 ./${REF_CMD_FILE_NAME}"
 
 
 	return 0
