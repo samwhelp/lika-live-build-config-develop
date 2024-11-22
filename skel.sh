@@ -239,7 +239,7 @@ args_var_init () {
 
 	DEFAULT_BUILD_RESPIN="xfce"
 	REF_BUILD_RESPIN="${REF_BUILD_RESPIN:=$DEFAULT_BUILD_RESPIN}"
-	REF_BUILD_RESPIN_OPTION_LIST="xfce kde"
+	REF_BUILD_RESPIN_OPTION_LIST="xfce kde gnome mate i3 e17 minimal"
 
 
 	##
@@ -399,7 +399,7 @@ model_start () {
 
 	main_signal_bind
 
-	#limit_root_user_required
+	limit_root_user_required
 
 
 	local main_run="${REF_MAIN_RUN}"
@@ -435,7 +435,7 @@ limit_root_user_required () {
 		util_error_echo
 		util_error_echo "> Please Run As Root"
 		util_error_echo
-		util_error_echo "Example: sudo ./${REF_CMD_FILE_NAME} amd64"
+		util_error_echo "Example: sudo ./${REF_CMD_FILE_NAME}"
 		util_error_echo
 
 		#sleep 2
@@ -573,11 +573,13 @@ msg_usage_body_main () {
 	util_error_echo
 	util_error_echo "SYNOPSIS : sudo ./${REF_CMD_FILE_NAME} [build_respin]"
 	util_error_echo
-	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} xfce"
+	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME}"
 	util_error_echo
 	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} xfce"
 	util_error_echo
 	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} kde"
+	util_error_echo
+	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} gnome"
 
 
 	return 0
@@ -588,11 +590,13 @@ msg_usage_body_locale () {
 
 	util_error_echo "> Build Locale Options: ${REF_BUILD_LOCALE_OPTION_LIST}"
 	util_error_echo
-	util_error_echo "SYNOPSIS : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME} [build_arch]"
+	util_error_echo "SYNOPSIS : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME} [build_respin]"
 	util_error_echo
-	util_error_echo "Example  : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME} amd64"
+	util_error_echo "Example  : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME} xfce"
 	util_error_echo
-	util_error_echo "Example  : sudo REF_BUILD_LOCALE=ez_cn ./${REF_CMD_FILE_NAME} amd64"
+	util_error_echo "Example  : sudo REF_BUILD_LOCALE=zh_tw ./${REF_CMD_FILE_NAME}"
+	util_error_echo
+	util_error_echo "Example  : sudo REF_BUILD_LOCALE=ez_cn ./${REF_CMD_FILE_NAME}"
 
 
 	return 0
@@ -603,11 +607,13 @@ msg_usage_body_arch () {
 
 	util_error_echo "> Build Arch Options: ${REF_BUILD_ARCH_OPTION_LIST}"
 	util_error_echo
-	util_error_echo "SYNOPSIS : sudo REF_BUILD_ARCH=amd64 ./${REF_CMD_FILE_NAME} [build_arch]"
+	util_error_echo "SYNOPSIS : sudo REF_BUILD_ARCH=amd64 ./${REF_CMD_FILE_NAME} [build_respin]"
 	util_error_echo
 	util_error_echo "Example  : sudo REF_BUILD_ARCH=amd64 ./${REF_CMD_FILE_NAME} xfce"
 	util_error_echo
-	util_error_echo "Example  : sudo REF_BUILD_ARCH=arm64 ./${REF_CMD_FILE_NAME} kde"
+	util_error_echo "Example  : sudo REF_BUILD_ARCH=amd64 ./${REF_CMD_FILE_NAME}"
+	util_error_echo
+	util_error_echo "Example  : sudo REF_BUILD_ARCH=arm64 ./${REF_CMD_FILE_NAME}"
 
 
 	return 0
@@ -873,7 +879,7 @@ __main__ () {
 
 }
 
-#_main_check_args_size_ "${#}"
+_main_check_args_size_ "${#}"
 
 _main_init_args_ "${@}"
 
