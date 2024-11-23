@@ -3,7 +3,8 @@
 set -e 
 
 ##
-## https://github.com/Nitrux/nx-desktop/blob/legacy-plasma/gh-build.sh#L8C1-L8C78
+## * https://github.com/Nitrux/nx-desktop/blob/legacy-plasma/gh-build.sh#L8C1-L8C78
+##
 ## ``` sh
 ## deps=$(sed -e '/^#.*$/d; /^$/d; /^\s*$/d' package/dependencies | paste -sd ,)
 ## ```
