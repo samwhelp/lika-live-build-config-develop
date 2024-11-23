@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -e 
 
 ##
 ## https://github.com/Nitrux/nx-desktop/blob/legacy-plasma/gh-build.sh#L8C1-L8C78
@@ -14,3 +15,4 @@ package_list=$(sed -e '/^#.*$/d; /^$/d; /^\s*$/d' tmp/package-list.txt | paste -
 ##echo ${package_list}
 sudo apt install ${package_list}
 
+echo ${?}
