@@ -4,7 +4,26 @@
 
 
 ##
-## # Cover
+## # Skel
+##
+
+
+##
+## ## Usage
+##
+## ### Debug
+##
+## run
+##
+## ``` sh
+## sudo IS_DEBUG=true ./skel.sh xfce
+## ```
+##
+## run
+##
+## ``` sh
+## sudo REF_MAIN_RUN=test IS_DEBUG=true ./skel.sh xfce
+## ```
 ##
 
 
@@ -239,7 +258,7 @@ args_var_init () {
 
 	DEFAULT_BUILD_RESPIN="xfce"
 	REF_BUILD_RESPIN="${REF_BUILD_RESPIN:=$DEFAULT_BUILD_RESPIN}"
-	REF_BUILD_RESPIN_OPTION_LIST="xfce kde gnome mate i3 e17 minimal"
+	REF_BUILD_RESPIN_OPTION_LIST="xfce lxqt kde-plasma gnome-shell mate cinnamon"
 
 
 	##
@@ -358,6 +377,44 @@ model_var_dump () {
 
 	return 0
 }
+
+
+
+
+
+##
+## ## Model / Util
+##
+
+util_dir_file_overlay () {
+
+
+	local source_dir_path="${1}"
+	local target_dir_path="${2}"
+
+
+	util_error_echo
+	util_error_echo mkdir -p "${source_dir_path}"
+	mkdir -p "${source_dir_path}"
+
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_dir_path}"
+	mkdir -p "${target_dir_path}"
+
+
+	util_error_echo
+	util_error_echo cp -rfT "${source_dir_path}" "${target_dir_path}"
+	cp -rfT "${source_dir_path}" "${target_dir_path}"
+
+
+	return 0
+}
+
+
+
+
+
 
 
 
@@ -577,9 +634,9 @@ msg_usage_body_main () {
 	util_error_echo
 	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} xfce"
 	util_error_echo
-	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} kde"
+	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} kde-plasma"
 	util_error_echo
-	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} gnome"
+	util_error_echo "Example  : sudo ./${REF_CMD_FILE_NAME} gnome-shell"
 
 
 	return 0
@@ -842,12 +899,6 @@ _main_init_args_ () {
 	args_var_dump
 
 
-	##
-	## ## Model / Variable / Init
-	##
-
-	model_var_init
-	model_var_dump
 
 
 	##
@@ -857,6 +908,15 @@ _main_init_args_ () {
 	master_var_init
 	master_var_dump
 
+
+
+
+	##
+	## ## Model / Variable / Init
+	##
+
+	model_var_init
+	model_var_dump
 
 
 
